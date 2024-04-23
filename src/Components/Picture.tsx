@@ -4,11 +4,11 @@ function Picture() {
   return (
     <div>
       <img alt="weather"></img>
-      <h1>Temperature</h1>
-      <h2>City</h2>
-      <h5>Date</h5>
+      <h1>temp</h1>
+      <h2>name</h2>
+      <h5>dt</h5>
       <img alt="icon"></img>
-      <h5>Weather</h5>
+      <h5>main</h5>
     </div>
   );
 }
