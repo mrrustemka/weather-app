@@ -1,9 +1,16 @@
-import React from "react";
-import logo from "./logo.svg";
+import Picture from "./Components/Picture";
+import Details from "./Components/Details";
+import Search from "./Components/Search";
 import "./App.css";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <Picture />
+      <Search />
+      <Details />
+    </>
+  );
 }
 
 export default App;
