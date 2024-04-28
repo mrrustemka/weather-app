@@ -50,7 +50,7 @@ function App() {
           setIsLoading(true);
           setError("");
           const weatherResults = await fetch(
-            `https://api.openweathermap.org/data/2.5/weather?q=${formData.city}&lang=en&units=metric&appid=${WEATHER_API_KEY}`
+            `https://api.openweathermap.org/data/2.5/weather?q=${formData.city}&lang=en&units=metric&appid=`
           );
 
           const data1 = await weatherResults.json();
@@ -58,7 +58,7 @@ function App() {
           const imagesResults = await fetch(
             `https://api.unsplash.com/search/photos?page=1&query=${
               data1.weather[0].main + "-" + formData.city
-            }&client_id=${IMAGES_API_KEY}`
+            }&client_id=`
           );
 
           const data2 = await imagesResults.json();

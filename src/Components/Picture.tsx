@@ -19,7 +19,10 @@ function Picture({ data, images }: any) {
       <h1>{data.main.temp}</h1>
       <h2>{data.name}</h2>
       <h5>{data.dt}</h5>
-      <img alt="icon"></img>
+      <img
+        alt="icon"
+        src={"http://openweathermap.org/img/w/" + data.weather[0].icon + ".png"}
+      />
       <h5>{data.weather[0].main}</h5>
     </div>
   );
