@@ -30,8 +30,7 @@ function App() {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-
-  // const [formData, setFormData] = React.useState<FormData>({ city: "" });
+  const [images, setImages] = React.useState<string[]>([]);
 
   function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
@@ -50,19 +49,33 @@ function App() {
         try {
           setIsLoading(true);
           setError("");
-          const res = await fetch(
-            `https://api.openweathermap.org/data/2.5/weather?q=${formData.city}&lang=en&units=metric&appid=f71010b80a0cfa1712fe9aebe36c2d58`
+          const weatherResults = await fetch(
+            `https://api.openweathermap.org/data/2.5/weather?q=${formData.city}&lang=en&units=metric&appid=${WEATHER_API_KEY}`
           );
 
-          if (!res.ok) {
+          const data1 = await weatherResults.json();
+
+          const imagesResults = await fetch(
+            `https://api.unsplash.com/search/photos?page=1&query=${
+              data1.weather[0].main + "-" + formData.city
+            }&client_id=${IMAGES_API_KEY}`
+          );
+
+          const data2 = await imagesResults.json();
+
+          if (!weatherResults.ok) {
             throw new Error("Something went wrong with fetching data...");
           }
 
-          const data = await res.json();
+          if (data1.Response === "False") throw new Error("City not found");
+          // setMovies(data1.Search);
+          setWeather(data1);
+          setImages([
+            data2.results[0].links.download,
+            data2.results[1].links.download,
+            data2.results[2].links.download,
+          ]);
 
-          if (data.Response === "False") throw new Error("City not found");
-          // setMovies(data.Search);
-          setWeather(data);
           setError("");
         } catch (err: any) {
           if (err.name !== "AbortError") {
@@ -89,7 +102,7 @@ function App() {
 
   return (
     <>
-      <Picture data={weather} />
+      <Picture data={weather} images={images} />
       <Search
         handleInputChange={handleInputChange}
         onSubmit={handleSubmit}
