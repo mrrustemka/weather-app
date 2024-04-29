@@ -1,4 +1,7 @@
 function Details({ data }: any) {
+  const one: string = new Date(data?.sys?.sunrise).toDateString();
+  const two: string = new Date(data?.sys?.sunset).toDateString();
+
   return (
     <div>
       <p>Description</p>
@@ -10,9 +13,9 @@ function Details({ data }: any) {
       <p>Wind</p>
       <p>{data.wind.speed}</p>
       <p>Sunrise</p>
-      <p>{data.sys.sunrise}</p>
+      <p>{one}</p>
       <p>Sunset</p>
-      <p>{data.sys.sunset}</p>
+      <p>{two}</p>
     </div>
   );
 }

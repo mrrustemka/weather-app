@@ -1,4 +1,6 @@
 function Picture({ data, images }: any) {
+  // console.log(data);
+  const date: string = new Date(data?.dt).toDateString();
   return (
     <div>
       {images.length > 0 ? (
@@ -16,9 +18,9 @@ function Picture({ data, images }: any) {
       ) : (
         ""
       )}
-      <h1>{data.main.temp}</h1>
+      <h1>{Math.round(data.main.temp)}</h1>
       <h2>{data.name}</h2>
-      <h5>{data.dt}</h5>
+      <h5>{date}</h5>
       <img
         alt="icon"
         src={"http://openweathermap.org/img/w/" + data.weather[0].icon + ".png"}
