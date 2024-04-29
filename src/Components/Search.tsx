@@ -1,9 +1,15 @@
 import React from "react";
 
-function Search({ onSubmit, formData, setFormData, handleInputChange }: any) {
+function Search({
+  submit,
+  onSubmit,
+  formData,
+  setFormData,
+  handleInputChange,
+}: any) {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    onSubmit(formData);
+    onSubmit(!submit);
   }
 
   return (

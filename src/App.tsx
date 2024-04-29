@@ -28,20 +28,19 @@ function App() {
     ],
     weather: [{ description: "", icon: "", id: 0, main: "" }],
   });
+  const [images, setImages] = React.useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const [images, setImages] = React.useState<string[]>([]);
+  const [submit, setSubmit] = React.useState<boolean>(false);
 
   function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
-    console.log("1");
   }
 
-  function handleSubmit(formData: FormData) {
-    setFormData(formData);
-    console.log("2");
-  }
+  // function handleSubmit() {
+  //   setSubmit(!submit);
+  // }
 
   useEffect(
     function () {
@@ -75,7 +74,6 @@ function App() {
             data2.results[1].links.download,
             data2.results[2].links.download,
           ]);
-
           setError("");
         } catch (err: any) {
           if (err.name !== "AbortError") {
@@ -97,7 +95,7 @@ function App() {
       //   controller.abort();
       // };
     },
-    [formData]
+    [submit]
   );
 
   return (
@@ -105,7 +103,8 @@ function App() {
       <Picture data={weather} images={images} />
       <Search
         handleInputChange={handleInputChange}
-        onSubmit={handleSubmit}
+        onSubmit={setSubmit}
+        submit={submit}
         formData={formData}
         setFormData={setFormData}
       />
