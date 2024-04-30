@@ -45,10 +45,6 @@ function App() {
 
   useEffect(
     function () {
-      // const a: string = process.env.REACT_APP_WEATHER_API_KEY;
-      console.log(process.env.REACT_APP_WEATHER_API_KEY);
-
-      console.log(process.env.REACT_APP_IMAGES_API_KEY);
       async function getWeather() {
         try {
           setIsLoading(true);
