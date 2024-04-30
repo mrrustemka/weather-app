@@ -4,6 +4,7 @@ import Details from "./Components/Details";
 import Search from "./Components/Search";
 import { useEffect, useState } from "react";
 import { FormData, Data } from "./types";
+// import "dotenv/config";
 import "./App.css";
 
 function App() {
@@ -44,12 +45,16 @@ function App() {
 
   useEffect(
     function () {
+      // const a: string = process.env.REACT_APP_WEATHER_API_KEY;
+      console.log(process.env.REACT_APP_WEATHER_API_KEY);
+
+      console.log(process.env.REACT_APP_IMAGES_API_KEY);
       async function getWeather() {
         try {
           setIsLoading(true);
           setError("");
           const weatherResults = await fetch(
-            `https://api.openweathermap.org/data/2.5/weather?q=${formData.city}&lang=en&units=metric&appid=`
+            `https://api.openweathermap.org/data/2.5/weather?q=${formData.city}&lang=en&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
           );
 
           const data1 = await weatherResults.json();
@@ -57,7 +62,7 @@ function App() {
           const imagesResults = await fetch(
             `https://api.unsplash.com/search/photos?page=1&query=${
               data1.weather[0].main + "-" + formData.city
-            }&client_id=`
+            }&client_id=${process.env.REACT_APP_IMAGES_API_KEY}`
           );
 
           const data2 = await imagesResults.json();

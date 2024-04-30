@@ -13,7 +13,7 @@ function Details({ data }: any) {
       <p>Wind</p>
       <p>{data.wind.speed}</p>
       <p>Sunrise</p>
-      <p>{one}</p>
+      <p>{one ? one : ""}</p>
       <p>Sunset</p>
       <p>{two}</p>
     </div>

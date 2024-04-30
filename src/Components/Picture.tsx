@@ -1,5 +1,4 @@
 function Picture({ data, images }: any) {
-  // console.log(data);
   const date: string = new Date(data?.dt).toDateString();
   return (
     <div>
@@ -18,7 +17,7 @@ function Picture({ data, images }: any) {
       ) : (
         ""
       )}
-      <h1>{Math.round(data.main.temp)}</h1>
+      <h1>{Math.round(data.main.temp) ? Math.round(data.main.temp) : ""}</h1>
       <h2>{data.name}</h2>
       <h5>{date}</h5>
       <img
