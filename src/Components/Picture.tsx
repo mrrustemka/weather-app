@@ -20,7 +20,7 @@ function Picture({ data, images }: any) {
         ""
       )}
       <h1>{Math.round(data.main.temp) ? Math.round(data.main.temp) : ""}</h1>
-      <h2>{data.name}</h2>
+      <h2>{data.name + ", " + data.sys.country}</h2>
       <h5>{new Date().toDateString()}</h5>
       <img
         alt="icon"
