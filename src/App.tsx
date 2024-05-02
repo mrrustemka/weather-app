@@ -4,7 +4,7 @@ import Details from "./Components/Details";
 import Search from "./Components/Search";
 import { useEffect, useState } from "react";
 import { FormData, Data } from "./types";
-// import "dotenv/config";
+import { Grid } from "@mui/material";
 import "./App.css";
 
 function App() {
@@ -74,6 +74,7 @@ function App() {
             data2.results[0].links.download,
             data2.results[1].links.download,
             data2.results[2].links.download,
+            data2.results[3].links.download,
           ]);
           setError("");
         } catch (err: any) {
@@ -101,15 +102,21 @@ function App() {
 
   return (
     <>
-      <Picture data={weather} images={images} />
-      <Search
-        handleInputChange={handleInputChange}
-        onSubmit={setSubmit}
-        submit={submit}
-        formData={formData}
-        setFormData={setFormData}
-      />
-      <Details data={weather} />
+      <Grid container spacing={0}>
+        <Grid item>
+          <Picture data={weather} images={images} submit={submit} />
+        </Grid>
+        <Grid item>
+          <Search
+            handleInputChange={handleInputChange}
+            onSubmit={setSubmit}
+            submit={submit}
+            formData={formData}
+            setFormData={setFormData}
+          />
+          <Details data={weather} />
+        </Grid>
+      </Grid>
     </>
   );
 }
