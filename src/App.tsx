@@ -4,7 +4,7 @@ import Details from "./Components/Details";
 import Search from "./Components/Search";
 import { useEffect, useState } from "react";
 import { FormData, Data } from "./types";
-import { Grid } from "@mui/material";
+import { Card, Grid } from "@mui/material";
 import "./App.css";
 
 function App() {
@@ -102,19 +102,27 @@ function App() {
 
   return (
     <>
-      <Grid container spacing={0}>
-        <Grid item>
+      <Grid
+        container
+        spacing={0}
+        gridTemplateColumns={"1fr auto auto 1fr"}
+        gridTemplateRows={"minmax(80px, 1fr) auto minmax(80px, 1fr)"}
+        display={"grid"}
+      >
+        <Grid item className="picture">
           <Picture data={weather} images={images} submit={submit} />
         </Grid>
-        <Grid item>
-          <Search
-            handleInputChange={handleInputChange}
-            onSubmit={setSubmit}
-            submit={submit}
-            formData={formData}
-            setFormData={setFormData}
-          />
-          <Details data={weather} />
+        <Grid item className="info">
+          <Card sx={{ maxWidth: "100%" }}>
+            <Search
+              handleInputChange={handleInputChange}
+              onSubmit={setSubmit}
+              submit={submit}
+              formData={formData}
+              setFormData={setFormData}
+            />
+            <Details data={weather} />
+          </Card>
         </Grid>
       </Grid>
     </>

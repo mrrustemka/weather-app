@@ -5,7 +5,7 @@ function Picture({ data, images, submit }: any) {
     <>
       {images.length > 0 ? (
         <Card sx={{ maxWidth: "auto" }}>
-          <CardMedia sx={{ height: "auto" }} image={images[1]} title="City">
+          <CardMedia sx={{ height: "auto" }} image={images[1]} title="City" className="">
             <CardContent>
               <Grid container spacing={1} display={"block"}>
                 <Typography gutterBottom variant="h1" component="div">
