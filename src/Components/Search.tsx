@@ -1,4 +1,6 @@
 import React from "react";
+import SearchIcon from "@mui/icons-material/Search";
+import { Button } from "@mui/material";
 
 function Search({
   submit,
@@ -21,7 +23,7 @@ function Search({
         value={formData.city}
         onChange={handleInputChange}
       />
-      <button type="submit">Search</button>
+      <Button type="submit" startIcon={<SearchIcon />}></Button>
     </form>
   );
 }

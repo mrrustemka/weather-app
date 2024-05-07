@@ -113,7 +113,14 @@ function App() {
           <Picture data={weather} images={images} submit={submit} />
         </Grid>
         <Grid item className="info">
-          <Card sx={{ maxWidth: "100%" }}>
+          <Card
+            sx={{
+              maxWidth: "100%",
+              height: "100%",
+              borderTopLeftRadius: "0",
+              borderBottomLeftRadius: "0",
+            }}
+          >
             <Search
               handleInputChange={handleInputChange}
               onSubmit={setSubmit}
