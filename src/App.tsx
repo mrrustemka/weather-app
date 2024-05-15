@@ -119,6 +119,8 @@ function App() {
               height: "100%",
               borderTopLeftRadius: "0",
               borderBottomLeftRadius: "0",
+              backgroundColor: "#566778",
+              color: "#ffffff",
             }}
           >
             <Search

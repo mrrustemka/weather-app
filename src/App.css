@@ -20,6 +20,23 @@ body {
   grid-row-end: 3;
   grid-column-start: 3;
   grid-column-end: 4;
+  /* padding: 8px; */
 }
 
+.details,
+.search {
+  padding: 16px;
+}
+
+.details-description {
+  display: flow-root;
+}
+
+.details-description > p:first-child {
+  float: left;
+}
+
+.details-description > p:nth-child(2) {
+  float: right;
+}
 /* height: 100vh; */
