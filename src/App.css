@@ -39,4 +39,10 @@ body {
 .details-description > p:nth-child(2) {
   float: right;
 }
+
+.search-input::after {
+  border-bottom: 2px solid #ffffff !important;
+}
+
+
 /* height: 100vh; */

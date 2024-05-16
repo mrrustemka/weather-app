@@ -24,7 +24,16 @@ function Picture({ data, images, submit }: any) {
                 paddingRight: "120px",
               }}
             >
-              <Grid container spacing={1} display={"block"}>
+              <Grid
+                container
+                spacing={1}
+                display={"block"}
+                sx={{
+                  backgroundColor: "#d8d3d369",
+                  borderRadius: "4px",
+                  padding: "8px",
+                }}
+              >
                 <Typography gutterBottom variant="h4" component="div">
                   {Math.round(data.main.temp) ? Math.round(data.main.temp) : ""}
                   &deg;

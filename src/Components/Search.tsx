@@ -1,7 +1,6 @@
 import React from "react";
 import SearchIcon from "@mui/icons-material/Search";
-import { Button, Input, InputAdornment, InputLabel } from "@mui/material";
-import { AccountCircle } from "@mui/icons-material";
+import { Button, Input, InputAdornment } from "@mui/material";
 import LocationCityOutlinedIcon from "@mui/icons-material/LocationCityOutlined";
 
 function Search({
@@ -18,32 +17,22 @@ function Search({
 
   return (
     <form onSubmit={handleSubmit} className="search">
-      {/* <input
-        name="city"
-        type="text"
-        placeholder="Enter City"
-        value={formData.city}
-        onChange={handleInputChange}
-      /> */}
-      {/* <InputLabel htmlFor="input-with-icon-adornment">
-        With a start adornment
-      </InputLabel> */}
       <Input
-        // id="input-with-icon-adornment"
         name="city"
         type="text"
         placeholder="Enter City"
         value={formData.city}
         onChange={handleInputChange}
+        className="search-input"
         startAdornment={
           <InputAdornment position="start">
-            <LocationCityOutlinedIcon />
+            <LocationCityOutlinedIcon sx={{ fill: "white" }} />
           </InputAdornment>
         }
       />
       <Button
         type="submit"
-        startIcon={<SearchIcon sx={{ stroke: "white" }} />}
+        startIcon={<SearchIcon sx={{ fill: "white" }} />}
       ></Button>
     </form>
   );
