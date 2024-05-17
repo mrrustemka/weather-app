@@ -2,6 +2,7 @@ import React from "react";
 import Picture from "./Components/Picture";
 import Details from "./Components/Details";
 import Search from "./Components/Search";
+import ErrorMessage from "./Components/ErrorMessage";
 import { useEffect, useState } from "react";
 import { FormData, Data } from "./types";
 import { Card, Grid } from "@mui/material";
@@ -55,6 +56,14 @@ function App() {
 
           const data1 = await weatherResults.json();
 
+          if (data1.message === "city not found") {
+            throw new Error("City not found");
+          }
+
+          if (!weatherResults.ok) {
+            throw new Error("Something went wrong with fetching data...");
+          }
+
           const imagesResults = await fetch(
             `https://api.unsplash.com/search/photos?page=1&query=${
               data1.weather[0].main + "-" + formData.city
@@ -63,12 +72,6 @@ function App() {
 
           const data2 = await imagesResults.json();
 
-          if (!weatherResults.ok) {
-            console.log("67");
-            throw new Error("Something went wrong with fetching data...");
-          }
-
-          if (data1.Response === "False") throw new Error("City not found");
           // setMovies(data1.Search);
           setWeather(data1);
           setImages([
@@ -79,15 +82,15 @@ function App() {
           ]);
           setError("");
         } catch (err: any) {
-          console.log("error", err);
-          if (err.name !== "AbortError") {
-            console.log(err.message);
-            setError(err.message);
-          }
+          setError(err);
+          // if (err.name !== "AbortError") {
+          //   setError(err.message);
+          // }
         } finally {
           setIsLoading(false);
         }
       }
+
       if (formData.city.length < 3) {
         setError("");
         return;
@@ -132,6 +135,7 @@ function App() {
               formData={formData}
               setFormData={setFormData}
             />
+            {error && <ErrorMessage message={error} />}
             <Details data={weather} />
           </Card>
         </Grid>

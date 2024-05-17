@@ -44,5 +44,8 @@ body {
   border-bottom: 2px solid #ffffff !important;
 }
 
-
+.error {
+  text-align: center;
+  color: #9a0202;
+}
 /* height: 100vh; */

@@ -14,7 +14,7 @@ function Picture({ data, images, submit }: any) {
           <CardMedia
             sx={{ height: "auto" }}
             image={images[1]}
-            title="City"
+            title={data.name}
             className=""
           >
             <CardContent
