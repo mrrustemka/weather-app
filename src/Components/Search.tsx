@@ -1,7 +1,7 @@
 import React from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import { Button, Input, InputAdornment } from "@mui/material";
-import LocationCityOutlinedIcon from "@mui/icons-material/LocationCityOutlined";
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 
 function Search({
   submit,
@@ -26,7 +26,7 @@ function Search({
         className="search-input"
         startAdornment={
           <InputAdornment position="start">
-            <LocationCityOutlinedIcon sx={{ fill: "white" }} />
+            <LocationOnOutlinedIcon />
           </InputAdornment>
         }
       />

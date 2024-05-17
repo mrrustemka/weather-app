@@ -64,6 +64,7 @@ function App() {
           const data2 = await imagesResults.json();
 
           if (!weatherResults.ok) {
+            console.log("67");
             throw new Error("Something went wrong with fetching data...");
           }
 
@@ -72,12 +73,13 @@ function App() {
           setWeather(data1);
           setImages([
             data2.results[0].links.download,
-            data2.results[1].links.download,
-            data2.results[2].links.download,
-            data2.results[3].links.download,
+            // data2.results[1].links.download,
+            // data2.results[2].links.download,
+            // data2.results[3].links.download,
           ]);
           setError("");
         } catch (err: any) {
+          console.log("error", err);
           if (err.name !== "AbortError") {
             console.log(err.message);
             setError(err.message);
