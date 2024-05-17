@@ -1,6 +1,10 @@
 import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { Data } from "../types";
 
 function Details({ data }: any) {
+  console.log(data);
+  // console.log(typeof data);
+
   return (
     <>
       {data.name ? (

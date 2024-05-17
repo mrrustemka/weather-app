@@ -11,25 +11,61 @@ import "./App.css";
 function App() {
   const [formData, setFormData] = React.useState<FormData>({ city: "" });
   const [weather, setWeather] = React.useState<Data>({
-    temp: 0,
+    base: "",
+    clouds: { all: 0 },
+    cod: 0,
+    coord: { lon: 0, lat: 0 },
+    dt: new Date(),
+    id: 0,
+    main: {
+      feels_like: 0,
+      grnd_level: 0,
+      humidity: 0,
+      pressure: 0,
+      sea_level: 0,
+      temp: 0,
+      temp_max: 0,
+      temp_min: 0,
+    },
     name: "",
-    date: new Date(),
-    main: "",
-    description: "",
-    humidity: 0,
-    pressure: 0,
-    wind: 0,
+    rain: { "1h": 0 },
     sys: [
-      {
-        country: "",
-        id: 0,
-        sunrise: new Date(),
-        sunset: new Date(),
-        type: 0,
-      },
+      { country: "", id: 0, sunrise: new Date(), sunset: new Date(), type: 0 },
     ],
+    timezone: new Date(),
+    visibility: 0,
     weather: [{ description: "", icon: "", id: 0, main: "" }],
+    wind: { speed: 0, deg: 0, gust: 0 },
   });
+  // const [weather, setWeather] = React.useState<Data>({
+  //   // temp: 0,
+  //   name: "",
+  //   // date: new Date(),
+  //   main: {
+  //     feels_like: 0,
+  //     grnd_level: 0,
+  //     humidity: 0,
+  //     pressure: 0,
+  //     sea_level: 0,
+  //     temp: 0,
+  //     temp_max: 0,
+  //     temp_min: 0,
+  //   },
+  //   // description: "",
+  //   // humidity: 0,
+  //   // pressure: 0,
+  //   wind: { speed: 0, deg: 0, gust: 0 },
+  //   sys: [
+  //     {
+  //       country: "",
+  //       id: 0,
+  //       sunrise: new Date(),
+  //       sunset: new Date(),
+  //       type: 0,
+  //     },
+  //   ],
+  //   weather: [{ description: "", icon: "", id: 0, main: "" }],
+  // });
   const [images, setImages] = React.useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -55,7 +91,7 @@ function App() {
           );
 
           const data1 = await weatherResults.json();
-
+          console.log(data1);
           if (data1.message === "city not found") {
             throw new Error("City not found");
           }
