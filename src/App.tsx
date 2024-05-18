@@ -11,66 +11,31 @@ import "./App.css";
 function App() {
   const [formData, setFormData] = React.useState<FormData>({ city: "" });
   const [weather, setWeather] = React.useState<Data>({
-    base: "",
-    clouds: { all: 0 },
-    cod: 0,
     coord: { lon: 0, lat: 0 },
-    dt: new Date(),
-    id: 0,
+    weather: [{ description: "", icon: "", id: 0, main: "" }],
+    base: "",
     main: {
       feels_like: 0,
-      grnd_level: 0,
       humidity: 0,
       pressure: 0,
-      sea_level: 0,
       temp: 0,
       temp_max: 0,
       temp_min: 0,
     },
-    name: "",
-    rain: { "1h": 0 },
-    sys: [
-      { country: "", id: 0, sunrise: new Date(), sunset: new Date(), type: 0 },
-    ],
-    timezone: new Date(),
     visibility: 0,
-    weather: [{ description: "", icon: "", id: 0, main: "" }],
-    wind: { speed: 0, deg: 0, gust: 0 },
+    wind: { speed: 0, deg: 0 },
+    clouds: { all: 0 },
+    dt: 0,
+    sys: { country: "", id: 0, sunrise: 0, sunset: 0, type: 0 },
+    timezone: 0,
+    id: 0,
+    name: "",
+    cod: 0,
   });
-  // const [weather, setWeather] = React.useState<Data>({
-  //   // temp: 0,
-  //   name: "",
-  //   // date: new Date(),
-  //   main: {
-  //     feels_like: 0,
-  //     grnd_level: 0,
-  //     humidity: 0,
-  //     pressure: 0,
-  //     sea_level: 0,
-  //     temp: 0,
-  //     temp_max: 0,
-  //     temp_min: 0,
-  //   },
-  //   // description: "",
-  //   // humidity: 0,
-  //   // pressure: 0,
-  //   wind: { speed: 0, deg: 0, gust: 0 },
-  //   sys: [
-  //     {
-  //       country: "",
-  //       id: 0,
-  //       sunrise: new Date(),
-  //       sunset: new Date(),
-  //       type: 0,
-  //     },
-  //   ],
-  //   weather: [{ description: "", icon: "", id: 0, main: "" }],
-  // });
   const [images, setImages] = React.useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = React.useState<string>("");
   const [submit, setSubmit] = React.useState<boolean>(false);
-
   function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
@@ -91,7 +56,6 @@ function App() {
           );
 
           const data1 = await weatherResults.json();
-          console.log(data1);
           if (data1.message === "city not found") {
             throw new Error("City not found");
           }
@@ -107,7 +71,7 @@ function App() {
           );
 
           const data2 = await imagesResults.json();
-
+          // console.log(data1);
           // setMovies(data1.Search);
           setWeather(data1);
           setImages([
@@ -118,7 +82,7 @@ function App() {
           ]);
           setError("");
         } catch (err: any) {
-          setError(err);
+          setError(err.message);
           // if (err.name !== "AbortError") {
           //   setError(err.message);
           // }
@@ -141,6 +105,8 @@ function App() {
     [submit]
   );
 
+  // console.log(formData.city);
+
   return (
     <>
       <Grid
@@ -161,17 +127,15 @@ function App() {
               borderTopLeftRadius: "0",
               borderBottomLeftRadius: "0",
               backgroundColor: "#d8d3d3",
-              // color: "#ffffff",
             }}
           >
             <Search
               handleInputChange={handleInputChange}
               onSubmit={setSubmit}
               submit={submit}
-              formData={formData}
-              setFormData={setFormData}
+              formData={formData.city}
             />
-            {error && <ErrorMessage message={error} />}
+            {error && <ErrorMessage error={error} />}
             <Details data={weather} />
           </Card>
         </Grid>

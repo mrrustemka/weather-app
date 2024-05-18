@@ -10,7 +10,7 @@ https://www.pexels.com/api/documentation/
 To do:
 1) Fix types
 Details (1)
-ErrorMessage(1)
+<!-- ErrorMessage(1) -->
 Picture (1)
 Search (1)
 App (1)

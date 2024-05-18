@@ -1,5 +1,5 @@
-function ErrorMessage({ message }: any) {
-  return <p className="error">{message.message}</p>;
+function ErrorMessage(error: { error: string }) {
+  return <p className="error">{error.error}</p>;
 }
 
 export default ErrorMessage;
