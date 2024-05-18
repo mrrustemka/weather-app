@@ -71,7 +71,6 @@ function App() {
           );
 
           const data2 = await imagesResults.json();
-          // console.log(data1);
           // setMovies(data1.Search);
           setWeather(data1);
           setImages(data2.results[0].links.download);
@@ -83,7 +82,6 @@ function App() {
           // }
         } finally {
           setIsLoading(false);
-          console.log(images);
         }
       }
 
@@ -101,7 +99,6 @@ function App() {
     [submit]
   );
 
-  // console.log(formData.city);
 
   return (
     <>

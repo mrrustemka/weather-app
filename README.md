@@ -13,7 +13,7 @@ To do:
 <!-- ErrorMessage(1) -->
 <!-- Picture (1) -->
 Search (1)
-App (1)
+<!-- App (1) -->
 2) Fix styles
 3) Fix class names
 4) Add fonts
