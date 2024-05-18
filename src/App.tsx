@@ -32,7 +32,7 @@ function App() {
     name: "",
     cod: 0,
   });
-  const [images, setImages] = React.useState<string[]>([]);
+  const [images, setImages] = React.useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = React.useState<string>("");
   const [submit, setSubmit] = React.useState<boolean>(false);
@@ -74,12 +74,7 @@ function App() {
           // console.log(data1);
           // setMovies(data1.Search);
           setWeather(data1);
-          setImages([
-            data2.results[0].links.download,
-            // data2.results[1].links.download,
-            // data2.results[2].links.download,
-            // data2.results[3].links.download,
-          ]);
+          setImages(data2.results[0].links.download);
           setError("");
         } catch (err: any) {
           setError(err.message);
@@ -88,6 +83,7 @@ function App() {
           // }
         } finally {
           setIsLoading(false);
+          console.log(images);
         }
       }
 
@@ -117,7 +113,7 @@ function App() {
         display={"grid"}
       >
         <Grid item className="picture">
-          <Picture data={weather} images={images} submit={submit} />
+          <Picture data={weather} images={images} />
         </Grid>
         <Grid item className="info">
           <Card

@@ -1,9 +1,11 @@
 import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { Data } from "../types";
 
-function Picture({ data, images, submit }: any) {
+function Picture(data: { data: Data; images: string }) {
+  const weather: Data = data.data;
   return (
     <>
-      {images.length > 0 ? (
+      {data.images.length > 0 ? (
         <Card
           sx={{
             maxWidth: "auto",
@@ -13,8 +15,8 @@ function Picture({ data, images, submit }: any) {
         >
           <CardMedia
             sx={{ height: "auto" }}
-            image={images[1]}
-            title={data.name}
+            image={data.images}
+            title={weather.name}
             className=""
           >
             <CardContent
@@ -35,17 +37,19 @@ function Picture({ data, images, submit }: any) {
                 }}
               >
                 <Typography gutterBottom variant="h4" component="div">
-                  {Math.round(data.main.temp) ? Math.round(data.main.temp) : ""}
+                  {Math.round(weather.main.temp)
+                    ? Math.round(weather.main.temp)
+                    : ""}
                   &deg;
                 </Typography>
                 <Typography gutterBottom variant="h5" component="div">
-                  {data.name + ", " + data.sys.country}
+                  {weather.name + ", " + weather.sys.country}
                 </Typography>
                 <img
                   alt="icon"
                   src={
                     "http://openweathermap.org/img/w/" +
-                    data.weather[0].icon +
+                    weather.weather[0].icon +
                     ".png"
                   }
                 />
@@ -53,7 +57,7 @@ function Picture({ data, images, submit }: any) {
                   {new Date().toDateString()}
                 </Typography>
                 <Typography gutterBottom variant="h6" component="div">
-                  {data.weather[0].main}
+                  {weather.weather[0].main}
                 </Typography>
               </Grid>
             </CardContent>
