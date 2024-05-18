@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { Data } from "../types";
 
 function Details(data: { data: Data }) {
@@ -6,28 +6,53 @@ function Details(data: { data: Data }) {
   return (
     <>
       {weather.name ? (
-        <div className="details">
-          <Typography gutterBottom variant="h6" component="div">
+        <Box
+          sx={{
+            padding: "16px",
+          }}
+        >
+          <Typography
+            gutterBottom
+            variant="h6"
+            component="div"
+            sx={{ textAlign: "center" }}
+          >
             Weather Details
           </Typography>
-          <div className="details-description">
-            <p>Description</p>
-            <p>{weather.weather[0].description}</p>
-          </div>
-          <div className="details-description">
-            <p>Humidity</p>
-            <p>{weather.main.humidity}</p>
-          </div>
-          <div className="details-description">
-            <p>Pressure</p>
+          <Box component="div" sx={{ display: "flow-root" }}>
+            <Typography gutterBottom component="p" sx={{ float: "left" }}>
+              Description
+            </Typography>
+            <Typography gutterBottom component="p" sx={{ float: "right" }}>
+              {weather.weather[0].description}
+            </Typography>
+          </Box>
+          <Box component="div" sx={{ display: "flow-root" }}>
+            <Typography gutterBottom component="p" sx={{ float: "left" }}>
+              Humidity
+            </Typography>
+            <Typography gutterBottom component="p" sx={{ float: "right" }}>
+              {weather.main.humidity}
+            </Typography>
+          </Box>
+          <Box component="div" sx={{ display: "flow-root" }}>
+            <Typography gutterBottom component="p" sx={{ float: "left" }}>
+              Pressure
+            </Typography>
 
-            <p>{weather.main.pressure}</p>
-          </div>
-          <div className="details-description">
-            <p>Wind</p>
-            <p>{weather.wind.speed}</p>
-          </div>
-        </div>
+            <Typography gutterBottom component="p" sx={{ float: "right" }}>
+              {weather.main.pressure}
+            </Typography>
+          </Box>
+          <Box component="div" sx={{ display: "flow-root" }}>
+            <Typography gutterBottom component="p" sx={{ float: "left" }}>
+              Wind
+            </Typography>
+            <Typography gutterBottom component="p" sx={{ float: "right" }}>
+              {weather.wind.speed}
+            </Typography>
+          </Box>
+        </Box>
       ) : (
         <></>
       )}

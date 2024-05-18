@@ -66,7 +66,7 @@ function App() {
 
           const imagesResults = await fetch(
             `https://api.unsplash.com/search/photos?page=1&query=${
-              data1.weather[0].main + "-" + formData.city
+              formData.city + "-" + data1.weather[0].main
             }&client_id=${process.env.REACT_APP_IMAGES_API_KEY}`
           );
 
@@ -99,7 +99,6 @@ function App() {
     [submit]
   );
 
-
   return (
     <>
       <Grid
@@ -109,10 +108,27 @@ function App() {
         gridTemplateRows={"minmax(80px, 1fr) auto minmax(80px, 1fr)"}
         display={"grid"}
       >
-        <Grid item className="picture">
+        <Grid
+          item
+          sx={{
+            gridRowStart: 2,
+            gridRowEnd: 3,
+            gridColumnStart: 2,
+            gridColumnEnd: 3,
+          }}
+        >
           <Picture data={weather} images={images} />
         </Grid>
-        <Grid item className="info">
+        <Grid
+          item
+          // className="info"
+          sx={{
+            gridRowStart: 2,
+            gridRowEnd: 3,
+            gridColumnStart: 3,
+            gridColumnEnd: 4,
+          }}
+        >
           <Card
             sx={{
               maxWidth: "100%",

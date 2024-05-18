@@ -1,6 +1,6 @@
 import React from "react";
 import SearchIcon from "@mui/icons-material/Search";
-import { Button, Input, InputAdornment } from "@mui/material";
+import { Button, Input, InputAdornment, Box } from "@mui/material";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 
 function Search(data: {
@@ -24,25 +24,26 @@ function Search(data: {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="search">
+    <Box component="form" onSubmit={handleSubmit} sx={{ padding: "16px" }}>
       <Input
         name="city"
         type="text"
         placeholder="Enter City"
         value={formData}
         onChange={handleInputChange}
-        className="search-input"
+        sx={{
+          "::after": {
+            borderBottom: "2px solid #ffffff !important",
+          },
+        }}
         startAdornment={
           <InputAdornment position="start">
             <LocationOnOutlinedIcon />
           </InputAdornment>
         }
       />
-      <Button
-        type="submit"
-        startIcon={<SearchIcon sx={{ fill: "white" }} />}
-      ></Button>
-    </form>
+      <Button type="submit" startIcon={<SearchIcon sx={{ fill: "white" }} />} />
+    </Box>
   );
 }
 

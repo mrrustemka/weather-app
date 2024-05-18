@@ -1,5 +1,14 @@
+import { Typography } from "@mui/material";
+
 function ErrorMessage(error: { error: string }) {
-  return <p className="error">{error.error}</p>;
+  return (
+    <Typography
+      component="p"
+      sx={{ textAlign: "center", color: "#9a0202", padding: "8px" }}
+    >
+      {error.error}
+    </Typography>
+  );
 }
 
 export default ErrorMessage;
