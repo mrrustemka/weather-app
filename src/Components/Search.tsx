@@ -35,6 +35,7 @@ function Search(data: {
           "::after": {
             borderBottom: "2px solid #ffffff !important",
           },
+          fontFamily: "RobotoMono, sans-serif" 
         }}
         startAdornment={
           <InputAdornment position="start">

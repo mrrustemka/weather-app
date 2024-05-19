@@ -15,40 +15,51 @@ function Details(data: { data: Data }) {
             gutterBottom
             variant="h6"
             component="div"
-            sx={{ textAlign: "center" }}
+            sx={{ textAlign: "center", fontFamily: "RobotoMono, sans-serif" }}
           >
             Weather Details
           </Typography>
           <Box component="div" sx={{ display: "flow-root" }}>
-            <Typography gutterBottom component="p" sx={{ float: "left" }}>
+            <Typography
+              gutterBottom
+              component="p"
+              sx={{ float: "left", fontFamily: "RobotoMono, sans-serif" }}
+            >
               Description
             </Typography>
-            <Typography gutterBottom component="p" sx={{ float: "right" }}>
+            <Typography
+              gutterBottom
+              component="p"
+              sx={{ float: "right", fontFamily: "RobotoMono, sans-serif" }}
+            >
               {weather.weather[0].description}
             </Typography>
           </Box>
-          <Box component="div" sx={{ display: "flow-root" }}>
-            <Typography gutterBottom component="p" sx={{ float: "left" }}>
+          <Box
+            component="div"
+            sx={{ display: "flow-root"}}
+          >
+            <Typography gutterBottom component="p" sx={{ float: "left", fontFamily: "RobotoMono, sans-serif"  }}>
               Humidity
             </Typography>
-            <Typography gutterBottom component="p" sx={{ float: "right" }}>
+            <Typography gutterBottom component="p" sx={{ float: "right", fontFamily: "RobotoMono, sans-serif"  }}>
               {weather.main.humidity}
             </Typography>
           </Box>
           <Box component="div" sx={{ display: "flow-root" }}>
-            <Typography gutterBottom component="p" sx={{ float: "left" }}>
+            <Typography gutterBottom component="p" sx={{ float: "left", fontFamily: "RobotoMono, sans-serif"  }}>
               Pressure
             </Typography>
 
-            <Typography gutterBottom component="p" sx={{ float: "right" }}>
+            <Typography gutterBottom component="p" sx={{ float: "right", fontFamily: "RobotoMono, sans-serif"  }}>
               {weather.main.pressure}
             </Typography>
           </Box>
           <Box component="div" sx={{ display: "flow-root" }}>
-            <Typography gutterBottom component="p" sx={{ float: "left" }}>
+            <Typography gutterBottom component="p" sx={{ float: "left", fontFamily: "RobotoMono, sans-serif"  }}>
               Wind
             </Typography>
-            <Typography gutterBottom component="p" sx={{ float: "right" }}>
+            <Typography gutterBottom component="p" sx={{ float: "right", fontFamily: "RobotoMono, sans-serif"  }}>
               {weather.wind.speed}
             </Typography>
           </Box>

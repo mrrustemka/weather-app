@@ -15,8 +15,8 @@ To do:
 <!-- Search (1) -->
 <!-- App (1) -->
 <!-- 2. Fix styles -->
-3. Fix class names
-4. Add fonts
+<!-- 3. Fix class names -->
+<!-- 4. Add fonts -->
 5. Add local Time
 6. Select Favicon
 7. Rename Components name

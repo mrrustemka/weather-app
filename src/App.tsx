@@ -64,6 +64,8 @@ function App() {
             throw new Error("Something went wrong with fetching data...");
           }
 
+          // console.log(data1.timezone / 60 / 60)
+
           const imagesResults = await fetch(
             `https://api.unsplash.com/search/photos?page=1&query=${
               formData.city + "-" + data1.weather[0].main
@@ -121,7 +123,6 @@ function App() {
         </Grid>
         <Grid
           item
-          // className="info"
           sx={{
             gridRowStart: 2,
             gridRowEnd: 3,

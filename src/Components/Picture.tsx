@@ -17,7 +17,6 @@ function Picture(data: { data: Data; images: string }) {
             sx={{ height: "auto" }}
             image={data.images}
             title={weather.name}
-            className=""
           >
             <CardContent
               sx={{
@@ -36,13 +35,13 @@ function Picture(data: { data: Data; images: string }) {
                   padding: "8px",
                 }}
               >
-                <Typography gutterBottom variant="h4" component="div">
+                <Typography gutterBottom variant="h4" component="div" sx={{fontFamily: "RobotoMono, sans-serif" }}>
                   {Math.round(weather.main.temp)
                     ? Math.round(weather.main.temp)
                     : ""}
                   &deg;
                 </Typography>
-                <Typography gutterBottom variant="h5" component="div">
+                <Typography gutterBottom variant="h5" component="div" sx={{fontFamily: "RobotoMono, sans-serif" }}>
                   {weather.name + ", " + weather.sys.country}
                 </Typography>
                 <img
@@ -53,10 +52,10 @@ function Picture(data: { data: Data; images: string }) {
                     ".png"
                   }
                 />
-                <Typography gutterBottom variant="h6" component="div">
+                <Typography gutterBottom variant="h6" component="div" sx={{fontFamily: "RobotoMono, sans-serif" }}>
                   {new Date().toDateString()}
                 </Typography>
-                <Typography gutterBottom variant="h6" component="div">
+                <Typography gutterBottom variant="h6" component="div" sx={{fontFamily: "RobotoMono, sans-serif" }}>
                   {weather.weather[0].main}
                 </Typography>
               </Grid>
