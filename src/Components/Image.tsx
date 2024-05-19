@@ -33,27 +33,12 @@ function Picture(data: { data: Data; image: string }) {
                   backgroundColor: "#d8d3d369",
                   borderRadius: "4px",
                   padding: "8px",
+                  "img": {
+                    display: "inline-block",
+                    verticalAlign: "top"
+                  },
                 }}
               >
-                <Typography
-                  gutterBottom
-                  variant="h4"
-                  component="div"
-                  sx={{ fontFamily: "RobotoMono, sans-serif" }}
-                >
-                  {Math.round(weather.main.temp)
-                    ? Math.round(weather.main.temp)
-                    : ""}
-                  &deg;
-                </Typography>
-                <Typography
-                  gutterBottom
-                  variant="h5"
-                  component="div"
-                  sx={{ fontFamily: "RobotoMono, sans-serif" }}
-                >
-                  {weather.name + ", " + weather.sys.country}
-                </Typography>
                 <img
                   alt="icon"
                   src={
@@ -62,6 +47,28 @@ function Picture(data: { data: Data; image: string }) {
                     ".png"
                   }
                 />
+                <Typography
+                  gutterBottom
+                  variant="h4"
+                  component="div"
+                  sx={{
+                    fontFamily: "RobotoMono, sans-serif",
+                    display: "inline-block",
+                  }}
+                >
+                  {Math.round(weather.main.temp)
+                    ? Math.round(weather.main.temp)
+                    : ""}
+                  &deg;
+                </Typography>{" "}
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="div"
+                  sx={{ fontFamily: "RobotoMono, sans-serif" }}
+                >
+                  {weather.name + ", " + weather.sys.country}
+                </Typography>
                 <Typography
                   gutterBottom
                   variant="h6"
