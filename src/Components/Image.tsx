@@ -1,11 +1,11 @@
 import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import { Data } from "../types";
 
-function Picture(data: { data: Data; images: string }) {
+function Picture(data: { data: Data; image: string }) {
   const weather: Data = data.data;
   return (
     <>
-      {data.images.length > 0 ? (
+      {data.image.length > 0 ? (
         <Card
           sx={{
             maxWidth: "auto",
@@ -15,7 +15,7 @@ function Picture(data: { data: Data; images: string }) {
         >
           <CardMedia
             sx={{ height: "auto" }}
-            image={data.images}
+            image={data.image}
             title={weather.name}
           >
             <CardContent
@@ -35,13 +35,23 @@ function Picture(data: { data: Data; images: string }) {
                   padding: "8px",
                 }}
               >
-                <Typography gutterBottom variant="h4" component="div" sx={{fontFamily: "RobotoMono, sans-serif" }}>
+                <Typography
+                  gutterBottom
+                  variant="h4"
+                  component="div"
+                  sx={{ fontFamily: "RobotoMono, sans-serif" }}
+                >
                   {Math.round(weather.main.temp)
                     ? Math.round(weather.main.temp)
                     : ""}
                   &deg;
                 </Typography>
-                <Typography gutterBottom variant="h5" component="div" sx={{fontFamily: "RobotoMono, sans-serif" }}>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="div"
+                  sx={{ fontFamily: "RobotoMono, sans-serif" }}
+                >
                   {weather.name + ", " + weather.sys.country}
                 </Typography>
                 <img
@@ -52,10 +62,20 @@ function Picture(data: { data: Data; images: string }) {
                     ".png"
                   }
                 />
-                <Typography gutterBottom variant="h6" component="div" sx={{fontFamily: "RobotoMono, sans-serif" }}>
+                <Typography
+                  gutterBottom
+                  variant="h6"
+                  component="div"
+                  sx={{ fontFamily: "RobotoMono, sans-serif" }}
+                >
                   {new Date().toDateString()}
                 </Typography>
-                <Typography gutterBottom variant="h6" component="div" sx={{fontFamily: "RobotoMono, sans-serif" }}>
+                <Typography
+                  gutterBottom
+                  variant="h6"
+                  component="div"
+                  sx={{ fontFamily: "RobotoMono, sans-serif" }}
+                >
                   {weather.weather[0].main}
                 </Typography>
               </Grid>

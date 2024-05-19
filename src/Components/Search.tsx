@@ -6,14 +6,14 @@ import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 function Search(data: {
   submit: boolean;
   onSubmit: Function;
-  formData: string;
+  query: string;
   handleInputChange:
     | React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>
     | undefined;
 }) {
   const submit: boolean = data.submit;
   const onSubmit: Function = data.onSubmit;
-  const formData: string = data.formData;
+  const formData: string = data.query;
   const handleInputChange:
     | React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>
     | undefined = data.handleInputChange;
@@ -35,7 +35,7 @@ function Search(data: {
           "::after": {
             borderBottom: "2px solid #ffffff !important",
           },
-          fontFamily: "RobotoMono, sans-serif" 
+          fontFamily: "RobotoMono, sans-serif",
         }}
         startAdornment={
           <InputAdornment position="start">

@@ -18,6 +18,6 @@ To do:
 <!-- 3. Fix class names -->
 <!-- 4. Add fonts -->
 <!-- 5. Add local Time -->
-6. Select Favicon
-7. Rename Components name
+<!-- 6. Select Favicon -->
+<!-- 7. Rename Components name -->
 8. Fix clear image bug

@@ -5,9 +5,9 @@ function Details(data: { data: Data }) {
   const weather: Data = data.data;
 
   const timestamp = Date.now() + weather.timezone * 1000;
-  const date = new Date(timestamp);
+  const date: Date = new Date(timestamp);
   const month: number = date.getUTCMonth() + 1;
-  const parseDate =
+  const parseDate: string =
     date.getUTCHours() +
     ":" +
     date.getUTCMinutes() +
