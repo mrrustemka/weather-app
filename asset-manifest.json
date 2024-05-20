@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/weather-app/static/css/main.51db2ae7.css",
+    "main.js": "/weather-app/static/js/main.2dea3f9d.js",
+    "static/media/RobotoMono-Regular.ttf": "/weather-app/static/media/RobotoMono-Regular.94ffabb10cbc81ee42ba.ttf",
+    "index.html": "/weather-app/index.html",
+    "main.51db2ae7.css.map": "/weather-app/static/css/main.51db2ae7.css.map",
+    "main.2dea3f9d.js.map": "/weather-app/static/js/main.2dea3f9d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.51db2ae7.css",
+    "static/js/main.2dea3f9d.js"
+  ]
+}
