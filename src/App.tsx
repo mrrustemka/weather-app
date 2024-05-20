@@ -67,7 +67,6 @@ function App() {
           );
 
           const data2 = await imageResult.json();
-
           setWeather(data1);
           setImage(data2.results[0].links.download);
           setError("");

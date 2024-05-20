@@ -1,4 +1,1 @@
-Technologies:
-React
-TypeScript
-Material UI
+https://mrrustemka.github.io/weather-app/
