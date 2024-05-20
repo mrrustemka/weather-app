@@ -1,4 +1,11 @@
-import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  Grid,
+  Typography,
+  Link,
+} from "@mui/material";
 import { Data } from "../types";
 
 function Picture(data: { data: Data; image: string }) {
@@ -33,9 +40,9 @@ function Picture(data: { data: Data; image: string }) {
                   backgroundColor: "#d8d3d369",
                   borderRadius: "4px",
                   padding: "8px",
-                  "img": {
+                  img: {
                     display: "inline-block",
-                    verticalAlign: "top"
+                    verticalAlign: "top",
                   },
                 }}
               >
@@ -85,6 +92,10 @@ function Picture(data: { data: Data; image: string }) {
                 >
                   {weather.weather[0].main}
                 </Typography>
+                {"Provided by "}
+                <Link href={data.image} color="inherit">
+                  unsplash
+                </Link>
               </Grid>
             </CardContent>
           </CardMedia>
